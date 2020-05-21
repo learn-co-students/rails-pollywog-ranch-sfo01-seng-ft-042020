@@ -13,7 +13,8 @@
   <a href="/tadpoles/<%= @tadpole.id %>/edit">Edit</a> |
   <a href="/tadpoles/<%= @tadpole.id %>/destroy">Delete</a>
 
-  
+  <br>
+  <br>
   <%= form_for :tadpole, :url => {:action => "metamorphose", :id => @tadpole} do |f| %>
     <div class="actions">
       <%= f.submit "Become a frog", :class => 'btn btn-primary' %>
@@ -22,7 +23,7 @@
 </div>
 
 <div class="card">
-  <img src="http://<%= @tadpole.color %>-tadpole.jpg.to/" alt="Tadpole Picture" width="300">
+  <img src="http://loremflickr.com/175/115/tadpole?random=<%=@tadpole.id%>" alt="Tadpole Picture" width="300">
 </div>
 
 

@@ -47,6 +47,19 @@ class TadpolesController < ApplicationController
     end
   end
 
+  def metamorphose
+    set_tadpole
+    attributes = @tadpole.attributes.except!("frog_id", "id")
+    @frog = Frog.new(attributes)
+    @frog.pond = @tadpole.pond
+    if @frog.save 
+      @tadpole.destroy
+      redirect_to frog_path(@frog)
+    else
+      format.html { render :show }
+    end
+  end
+
   private
     def set_tadpole
       @tadpole = Tadpole.find(params[:id])
